@@ -18,7 +18,7 @@ public class Remocao extends IUD
             Aluno aluno;
 
             System.out.println("[REMOVER ALUNO]");
-            System.out.print("Número: ");
+            System.out.print("Número do aluno: ");
             long nro = Long.parseLong(System.console().readLine());
 
             dao = new AlunoDAO();

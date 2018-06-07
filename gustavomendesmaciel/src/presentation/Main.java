@@ -166,6 +166,14 @@ public class Main
                 }
                 break;
             case "5":
+                while (!res)
+                {
+                    Insercao insercao = new Insercao();
+
+                    Terminal.clearScreen();
+                    insercao.matricula();
+                    Terminal.clearScreen();
+                }
 
                 break;
             case "6":

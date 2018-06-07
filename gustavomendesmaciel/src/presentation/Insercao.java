@@ -126,4 +126,50 @@ public class Insercao extends IUD
             else Terminal.clearScreen();
         }
     }
+
+    public void matricula()
+    {
+        MatriculaDAO mdao;
+        AlunoDAO adao;
+        Matricula matricula;
+        Aluno aluno;
+        String op;
+        boolean insert = true;
+
+        while (insert)
+        {
+            op = "";
+
+            System.out.println("[MATRICULAR ALUNO]");
+            System.out.print("Número do aluno: ");
+            long nro = Long.parseLong(System.console().readLine());
+
+            adao = new AlunoDAO();
+            aluno = adao.obtem(nro);
+
+            if (aluno != null)
+            {
+                System.out.print
+                (
+                    "Nome: " + aluno.getNome() + "\n" +
+                    "Formação: " + aluno.getFormacao() + "\n" +
+                    "Nível: " + aluno.getNivel() + "\n" +
+                    "Idade: " + aluno.getIdade() + "\n\n"
+                );
+            }
+            else
+            {
+                System.out.println("Aluno não encontrado. Operação não concluída.\n");
+            }
+
+            while (!op.equals("s") && !op.equals("n"))
+            {
+                System.out.print("Deseja inserir outro aluno? (s ou n) ");
+                op = System.console().readLine();
+            }
+
+            if (op.equals("n")) insert = false;
+            else Terminal.clearScreen();
+        }
+    }
 }
